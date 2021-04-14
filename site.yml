@@ -1,0 +1,31 @@
+---
+- name: Dynamic DNS using YDNS
+  hosts: ydns
+  become: yes
+
+  tasks:
+    - name: Update repositories
+      apt:
+          cache_valid_time: 86400
+          update_cache: yes
+
+    - name: Install dependencies
+      apt:
+          name:
+            - curl
+            - jq
+          state: present
+
+    - name: Create updater script
+      template:
+        src: updater.sh.j2
+        dest: /root/updater.sh
+        owner: root
+        group: root
+        mode: '0700'
+
+    - name: add crontab for updater script
+      ansible.builtin.cron:
+        name: ydns updater
+        special_time: hourly
+        job: /root/updater.sh

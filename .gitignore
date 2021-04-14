@@ -1,0 +1,3 @@
+ssh/oracle
+ssh/oracle.pub
+inventory/group_vars/ydns.yml
