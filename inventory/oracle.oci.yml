@@ -7,7 +7,7 @@ instance_principal_authentication: False
 regions:
     - ap-hyderabad-1
 
-config_file: /home/k3_karthic/.oci/ai_config
+config_file: ~/.oci/ai_config
 config_profile: DEFAULT
 
 enable_parallel_processing: yes
