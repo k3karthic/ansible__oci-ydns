@@ -1,19 +1,22 @@
-# Dynamic DNS using YDNS
+# Ansible - Dynamic DNS using YDNS
 
 The Ansible playbook in this repository installs and periodically runs a [bash script](https://github.com/k3karthic/bash-updater) which sends the public IP to [YDNS](https://ydns.io/) which is a free dynamic dns service. 
 
 The playbook assumes the instance is running on Oracle Cloud using the terraform script [https://github.com/k3karthic/terraform__oci-instance-1](https://github.com/k3karthic/terraform__oci-instance-1).
+
+## Dynamic Inventory
+
+This playbook uses the Oracle [Ansible Inventory Plugin](https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/ansibleinventoryintro.htm) to dynamically populate public Ubuntu instances.
+
+All public Ubuntu instances are assumed to have a freeform tag `ydns_host: <hostname>`.
 
 ## Configuration
 
 1. Modify `inventory/oracle.oci.yml`
     1. specify the region where you have deployed your server on Oracle Cloud.
     1. Configure the authentication as per the [Oracle Guide](https://docs.oracle.com/en-us/iaas/Content/API/Concepts/sdkconfig.htm#SDK_and_CLI_Configuration_File).
-1. Set username in `inventory/group_vars/all.yml`
-
-## SSH Private Key
-
-Copy your SSH private key for your server into the `ssh` folder as `oracle`. Alternatively, edit the `inventory/group_vars/all.yml` file and replace the value of `ansible_ssh_private_key_file` with the location of the private key.
+1. Set username and ssh authentication in `inventory/group_vars/all.yml`.
+2. Set username and password for YDNS in `inventory/group_vars/ydns.yml` using the sample `inventory/group_vars/ydns.yml.sample`.
 
 ## Run
 
