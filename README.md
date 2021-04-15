@@ -10,7 +10,7 @@ This playbook uses the Oracle [Ansible Inventory Plugin](https://docs.oracle.com
 
 Public instances with a ydns hostname are assumed to have a freeform tag `ydns_host: <hostname>`.
 
-## Configuration
+## Playbook Configuration
 
 1. Modify `inventory/oracle.oci.yml`
     1. specify the region where you have deployed your server on Oracle Cloud.
