@@ -8,7 +8,7 @@ The playbook assumes the instance is running on Oracle Cloud using the terraform
 
 This playbook uses the Oracle [Ansible Inventory Plugin](https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/ansibleinventoryintro.htm) to dynamically populate public Ubuntu instances.
 
-All public Ubuntu instances are assumed to have a freeform tag `ydns_host: <hostname>`.
+Public instances with a ydns hostname are assumed to have a freeform tag `ydns_host: <hostname>`.
 
 ## Configuration
 
