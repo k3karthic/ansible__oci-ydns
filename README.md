@@ -18,8 +18,9 @@ Public instances with a ydns hostname are assumed to have a freeform tag `ydns_h
 1. Set username and ssh authentication in `inventory/group_vars/all.yml`.
 2. Set username and password for YDNS in `inventory/group_vars/ydns.yml` using the sample `inventory/group_vars/ydns.yml.sample`.
 
-## Run
+## Deployment
 
+Run the playbook using the following command,
 ```
 ./bin/apply.sh
 ```
