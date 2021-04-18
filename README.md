@@ -1,14 +1,14 @@
 # Ansible - Dynamic DNS using YDNS
 
-The Ansible playbook in this repository installs and periodically runs a [bash script](https://github.com/k3karthic/bash-updater) which sends the public IP to [YDNS](https://ydns.io/) which is a free dynamic dns service. 
+The Ansible playbook in this repository installs and periodically runs a [bash script](https://github.com/k3karthic/bash-updater) which sends the public IP to [YDNS](https://ydns.io/) which is a free dynamic DNS service. 
 
-The playbook assumes the instance is running on Oracle Cloud using the terraform script [https://github.com/k3karthic/terraform__oci-instance-1](https://github.com/k3karthic/terraform__oci-instance-1).
+The playbook assumes the instance runs on Oracle Cloud using the terraform script [https://github.com/k3karthic/terraform__oci-instance-1](https://github.com/k3karthic/terraform__oci-instance-1).
 
 ## Dynamic Inventory
 
-This playbook uses the Oracle [Ansible Inventory Plugin](https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/ansibleinventoryintro.htm) to dynamically populate public Ubuntu instances.
+This playbook uses the Oracle [Ansible Inventory Plugin](https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/ansibleinventoryintro.htm) to populate public Ubuntu instances dynamically.
 
-Public instances with a ydns hostname are assumed to have a freeform tag `ydns_host: <hostname>`.
+Public instances with a YDNS hostname are assumed to have a freeform tag `ydns_host: <hostname>`.
 
 ## Playbook Configuration
 
@@ -29,7 +29,7 @@ Run the playbook using the following command,
 
 Sensitive files like the SSH private keys are encrypted before being stored in the repository.
 
-The unencrypted file paths must be added to `.gitignore`.
+You must add the unencrypted file paths to `.gitignore`.
 
 Use the following command to decrypt the files after cloning the repository,
 
