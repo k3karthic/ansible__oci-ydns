@@ -5,19 +5,19 @@
 
   tasks:
     - name: update repositories
-      apt:
+      ansible.builtin.apt:
           cache_valid_time: 86400
           update_cache: yes
 
     - name: install dependencies
-      apt:
+      ansible.builtin.apt:
           name:
             - curl
             - jq
           state: present
 
     - name: create updater script
-      template:
+      ansible.builtin.template:
         src: updater.sh.j2
         dest: /root/updater.sh
         owner: root
