@@ -1,22 +1,22 @@
 ---
-- name: Dynamic DNS using YDNS
+- name: dynamic dns using ydns
   hosts: ydns
   become: yes
 
   tasks:
-    - name: Update repositories
+    - name: update repositories
       apt:
           cache_valid_time: 86400
           update_cache: yes
 
-    - name: Install dependencies
+    - name: install dependencies
       apt:
           name:
             - curl
             - jq
           state: present
 
-    - name: Create updater script
+    - name: create updater script
       template:
         src: updater.sh.j2
         dest: /root/updater.sh

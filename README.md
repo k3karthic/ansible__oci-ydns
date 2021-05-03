@@ -2,7 +2,9 @@
 
 The Ansible playbook in this repository installs and periodically runs a [bash script](https://github.com/k3karthic/bash-updater) which sends the public IP to [YDNS](https://ydns.io/) which is a free dynamic DNS service. 
 
-The playbook assumes the instance runs on Oracle Cloud using the terraform script [https://github.com/k3karthic/terraform__oci-instance-1](https://github.com/k3karthic/terraform__oci-instance-1).
+The playbook assumes the instance runs in Oracle Cloud using the terraform scripts below,
+* [https://github.com/k3karthic/terraform__oci-instance-1](https://github.com/k3karthic/terraform__oci-instance-1).
+* [https://github.com/k3karthic/terraform__oci-instance-2](https://github.com/k3karthic/terraform__oci-instance-2).
 
 ## Dynamic Inventory
 
@@ -15,8 +17,14 @@ Public instances with a YDNS hostname are assumed to have a freeform tag `ydns_h
 1. Modify `inventory/oracle.oci.yml`
     1. specify the region where you have deployed your server on Oracle Cloud.
     1. Configure the authentication as per the [Oracle Guide](https://docs.oracle.com/en-us/iaas/Content/API/Concepts/sdkconfig.htm#SDK_and_CLI_Configuration_File).
-1. Set username and ssh authentication in `inventory/group_vars/all.yml`.
+1. Set username and ssh authentication in `inventory/group_vars/`.
 2. Set username and password for YDNS in `inventory/group_vars/ydns.yml` using the sample `inventory/group_vars/ydns.yml.sample`.
+
+If you are using mutliple SSH key pairs, use the following command to add them to ssh-agent before running the playbook.
+```
+eval "$(ssh-agent -s)"
+ssh-add <path to keypair>
+```
 
 ## Deployment
 
