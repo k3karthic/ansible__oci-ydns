@@ -6,6 +6,13 @@ The playbook assumes the instance runs in Oracle Cloud using the terraform scrip
 * [https://github.com/k3karthic/terraform__oci-instance-1](https://github.com/k3karthic/terraform__oci-instance-1).
 * [https://github.com/k3karthic/terraform__oci-instance-2](https://github.com/k3karthic/terraform__oci-instance-2).
 
+## Requirements
+
+Install the following Ansible modules before running the playbook,
+```
+ansible-galaxy collection install oracle.oci
+```
+
 ## Dynamic Inventory
 
 This playbook uses the Oracle [Ansible Inventory Plugin](https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/ansibleinventoryintro.htm) to populate public Ubuntu instances dynamically.
