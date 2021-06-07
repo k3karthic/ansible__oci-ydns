@@ -1,8 +1,8 @@
 # Ansible - Dynamic DNS using YDNS
 
-The Ansible playbook in this repository installs and periodically runs a [bash script](https://github.com/k3karthic/bash-updater) which sends the public IP to [YDNS](https://ydns.io/) which is a free dynamic DNS service. 
+The Ansible playbook in this repository installs and periodically runs a [bash script](https://github.com/k3karthic/bash-updater) which sends the public IP of an Ubuntu 20.04 instance on Oracle Cloud to [YDNS](https://ydns.io/) which is a free dynamic DNS service. 
 
-The playbook assumes the instance runs in Oracle Cloud using the terraform scripts below,
+The playbook assumes the instance was deployed to Oracle Cloud using one of the Terraform scripts below,
 * [https://github.com/k3karthic/terraform__oci-instance-1](https://github.com/k3karthic/terraform__oci-instance-1).
 * [https://github.com/k3karthic/terraform__oci-instance-2](https://github.com/k3karthic/terraform__oci-instance-2).
 
