@@ -25,7 +25,7 @@
 
 YDNS_USER="{{ ydns_user }}"
 YDNS_PASSWD="{{ ydns_password }}"
-YDNS_HOST=$( curl -H 'Authorization: Bearer Oracle' http://169.254.169.254/opc/v2/instance/ | jq -r .freeformTags.ydns_host )
+YDNS_HOST=$( curl -s -H 'Authorization: Bearer Oracle' http://169.254.169.254/opc/v2/instance/ | jq -r .freeformTags.ydns_host )
 YDNS_LASTIP_FILE="/tmp/ydns_last_ip_$YDNS_HOST"
 
 ##
