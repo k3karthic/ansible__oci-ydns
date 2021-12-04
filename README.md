@@ -32,10 +32,16 @@ The target Ubuntu instances must have the freeform tag `ydns_host: <hostname>`.
 1. Set username and ssh authentication in `inventory/group_vars/`.
 2. Set username and password for YDNS in `inventory/group_vars/ydns.yml` using the sample `inventory/group_vars/ydns.yml.sample`.
 
-If you are using mutliple SSH key pairs, use the following command to add them to ssh-agent before running the playbook,
+To use more than a single SSH keypair (with passphrases), use ssh-agent to store them.
+
+Run the following command to start `ssh-agent`,
 ```
-eval "$(ssh-agent -s)"
-ssh-add <path to keypair>
+$ eval "$(ssh-agent -s)"
+```
+
+Add each keypair using the following command,
+```
+$ ssh-add <path to keypair>
 ```
 
 ## Deployment
@@ -47,18 +53,16 @@ Run the playbook using the following command,
 
 ## Encryption
 
-Sensitive files like the SSH private keys are encrypted before being stored in the repository.
-
-You must add the unencrypted file paths to `.gitignore`.
+Encrypt sensitive files (SSH private keys) before saving them. `.gitignore` must contain the unencrypted file paths.
 
 Use the following command to decrypt the files after cloning the repository,
 
 ```
-./bin/decrypt.sh
+$ ./bin/decrypt.sh
 ```
 
 Use the following command after running terraform to update the encrypted files,
 
 ```
-./bin/encrypt.sh <gpg key id>
+$ ./bin/encrypt.sh <gpg key id>
 ```
