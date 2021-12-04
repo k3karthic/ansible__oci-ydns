@@ -2,7 +2,7 @@
 
 This playbook runs a [bash script](https://github.com/k3karthic/bash-updater) which sends the public IP of an instance on Oracle Cloud to [YDNS](https://ydns.io/). 
 
-**Assumption:** The instance runs on Oracle Cloud using one of the Terraform scripts below,
+**Assumption:** Create an instance using one of the Terraform scripts below,
 * terraform__oci-instance-1
 	* GitHub: [github.com/k3karthic/terraform__oci-instance-1](https://github.com/k3karthic/terraform__oci-instance-1).
 	* Codeberg: [codeberg.org/k3karthic/terraform__oci-instance-1](https://codeberg.org/k3karthic/terraform__oci-instance-1).
