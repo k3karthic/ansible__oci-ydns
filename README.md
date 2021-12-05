@@ -1,8 +1,10 @@
 # Ansible — Dynamic DNS using YDNS
 
-This playbook runs a [bash script](https://github.com/k3karthic/bash-updater) which sends the public IP of an instance on Oracle Cloud to [YDNS](https://ydns.io/). 
+This playbook creates a bash script from the following fork. The script sends the public IP of an instance on Oracle Cloud to [YDNS](https://ydns.io/). A [Cron](https://en.wikipedia.org/wiki/Cron) job runs the script once every hour.
+* GitHub: [github.com/k3karthic/bash-updater](https://github.com/k3karthic/bash-updater)
+* Codeberg: [codeberg.org/k3karthic/bash-updater](https://codeberg.org/k3karthic/bash-updater)
 
-**Assumption:** Create an instance using one of the Terraform scripts below,
+**Assumption:** Instance deployed using either one of the Terraform scripts below,
 * terraform__oci-instance-1
 	* GitHub: [github.com/k3karthic/terraform__oci-instance-1](https://github.com/k3karthic/terraform__oci-instance-1)
 	* Codeberg: [codeberg.org/k3karthic/terraform__oci-instance-1](https://codeberg.org/k3karthic/terraform__oci-instance-1)
@@ -27,7 +29,7 @@ ansible-galaxy collection install oracle.oci
 
 The Oracle [Ansible Inventory Plugin](https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/ansibleinventoryintro.htm) populates public Ubuntu instances.
 
-The target Ubuntu instances must have the freeform tag `ydns_host: <hostname>`.
+All target Ubuntu instances must have the freeform tag `ydns_host: <hostname>`.
 
 ## Playbook Configuration
 
